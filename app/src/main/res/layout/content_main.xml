@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="#3897d9"
+    tools:showIn="@layout/app_bar_main">
+
+    <RelativeLayout
+        android:id="@+id/lin_detay_sliderLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#fff"
+        android:layout_below="@+id/urunDetayBaslik"
+        tools:ignore="UnknownId">
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/VPurunDetaySlider">
+
+        </android.support.v4.view.ViewPager>
+
+        <me.relex.circleindicator.CircleIndicator
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/MainsliderNokta">
+
+        </me.relex.circleindicator.CircleIndicator>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/mainActivitySlider"
+        android:orientation="vertical"
+        tools:ignore="UnknownId">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSatilikUrun"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/menu_button_back"
+                android:drawableTop="@drawable/satilikurun"
+                android:padding="8dp"
+                android:paddingBottom="10dp"
+                android:text="Satılık Ürün"
+                android:textColor="#0F3057"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textColor="#0F3057"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:id="@+id/btnUrunSat"
+                android:paddingBottom="10dp"
+                android:background="@drawable/menu_button_back"
+                android:drawableTop="@drawable/urunsat"
+                android:text="Ürün Sat" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:textColor="#0F3057"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:id="@+id/ilanFavori"
+                android:paddingBottom="10dp"
+                android:background="@drawable/menu_button_back"
+                android:drawableTop="@drawable/favori"
+                android:text="Favori İlanlar" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:layout_margin="5dp"
+                android:textColor="#0F3057"
+                android:textStyle="bold"
+                android:background="@drawable/menu_button_back"
+                android:paddingBottom="10dp"
+                android:id="@+id/btnIletisimBilgi"
+                android:drawableTop="@drawable/iletisim"
+                android:text="İletişim Bilgileri" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingBottom="10dp"
+                android:layout_margin="5dp"
+                android:textColor="#0F3057"
+                android:padding="8dp"
+                android:id="@+id/btnKisiMesaj"
+                android:textStyle="bold"
+                android:background="@drawable/menu_button_back"
+                android:drawableTop="@drawable/mesaj"
+                android:text="Mesajlarım" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingBottom="10dp"
+                android:layout_margin="5dp"
+                android:textColor="#0F3057"
+                android:padding="8dp"
+                android:id="@+id/btnUrunlerim"
+                android:textStyle="bold"
+                android:background="@drawable/menu_button_back"
+                android:drawableTop="@drawable/ilanlarim"
+                android:text="Ürünlerim" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

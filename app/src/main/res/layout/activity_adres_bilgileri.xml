@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#F7BC05"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".AdresBilgileriActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="Adres Bilgilerini Giriniz."/>
+
+
+
+    <EditText
+        android:id="@+id/etIlceBilgi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#203040"
+        android:hint="ilçe Bilgilerini Giriniz."/>
+
+    <EditText
+        android:id="@+id/etMahalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#203040"
+        android:hint="Mahalle Bilgilerini Giriniz."/>
+    <EditText
+        android:id="@+id/etSokak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#203040"
+        android:hint="Sokak Bilgilerini Giriniz."/>
+    <EditText
+        android:id="@+id/etNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#203040"
+        android:hint="No Bilgisini Giriniz."/>
+    <Button
+        android:id="@+id/btnAdresIleri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:text="İleri"
+        android:background="@drawable/menu_button_back"/>
+    <Button
+        android:id="@+id/btnAdresGeri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Geri"
+        android:background="@drawable/menu_button_back"/>
+
+</LinearLayout>
