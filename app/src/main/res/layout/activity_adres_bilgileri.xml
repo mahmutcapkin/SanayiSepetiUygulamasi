@@ -3,65 +3,87 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#F7BC05"
     android:orientation="vertical"
-    android:layout_height="match_parent"
     tools:context=".AdresBilgileriActivity">
 
-    <TextView
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:text="Adres Bilgilerini Giriniz."/>
+        android:visibility="gone" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swAdres">
+    <LinearLayout
+        android:id="@+id/LinearlayoutAdres"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:text="Adres Bilgilerini Giriniz."
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
 
+        <EditText
+            android:id="@+id/etIlceBilgi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ilçe Bilgilerini Giriniz."
+            android:textColorHint="#203040" />
 
-    <EditText
-        android:id="@+id/etIlceBilgi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="#203040"
-        android:hint="ilçe Bilgilerini Giriniz."/>
+        <EditText
+            android:id="@+id/etMahalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mahalle Bilgilerini Giriniz."
+            android:textColorHint="#203040" />
 
-    <EditText
-        android:id="@+id/etMahalle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="#203040"
-        android:hint="Mahalle Bilgilerini Giriniz."/>
-    <EditText
-        android:id="@+id/etSokak"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="#203040"
-        android:hint="Sokak Bilgilerini Giriniz."/>
-    <EditText
-        android:id="@+id/etNo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="#203040"
-        android:hint="No Bilgisini Giriniz."/>
-    <Button
-        android:id="@+id/btnAdresIleri"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="20dp"
-        android:text="İleri"
-        android:background="@drawable/menu_button_back"/>
-    <Button
-        android:id="@+id/btnAdresGeri"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="20dp"
-        android:text="Geri"
-        android:background="@drawable/menu_button_back"/>
+        <EditText
+            android:id="@+id/etSokak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sokak Bilgilerini Giriniz."
+            android:textColorHint="#203040" />
+
+        <EditText
+            android:id="@+id/etNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="No Bilgisini Giriniz."
+            android:textColorHint="#203040" />
+
+        <Button
+            android:id="@+id/btnAdresIleri"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/menu_button_back"
+            android:text="Satışa Koy" />
+
+        <Button
+            android:id="@+id/btnAdresGeri"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/menu_button_back"
+            android:text="Geri" />
+
+    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

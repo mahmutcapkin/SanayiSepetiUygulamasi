@@ -61,12 +61,12 @@ public class MainActivity extends AppCompatActivity  implements  NavigationView.
 
         navigationView.setNavigationItemSelectedListener(this);
 
-
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_add, R.id.nav_message, R.id.nav_cikis)
                 .setDrawerLayout(drawer)
                 .build();
 
+        tanimlamalar();
     }
     @Override
     public void onBackPressed() {
@@ -149,21 +149,22 @@ public class MainActivity extends AppCompatActivity  implements  NavigationView.
         MainsliderNokta = (CircleIndicator)findViewById(R.id.MainsliderNokta);
         btnMesajlarim = findViewById(R.id.btnKisiMesaj);
 
-    /*   btnSatilikUrun.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,IlanBilgileriActivity.class);
-                startActivity(intent);
-            }
-        });
         btnUrunSat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UrunBilgileriActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
+            }
+        });
+         /*  btnSatilikUrun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,IlanBilgileriActivity.class);
                 startActivity(intent);
             }
-        });
-        btnUrunlerim.setOnClickListener(new View.OnClickListener() {
+        });*/
+     /*   btnUrunlerim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,IlanBilgileriActivity.class);

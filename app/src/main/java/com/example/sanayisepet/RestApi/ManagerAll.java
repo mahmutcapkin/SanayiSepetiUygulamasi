@@ -3,6 +3,7 @@ package com.example.sanayisepet.RestApi;
 import com.example.sanayisepet.Models.DogrulamaPojo;
 import com.example.sanayisepet.Models.LoginPojo;
 import com.example.sanayisepet.Models.RegisterPojo;
+import com.example.sanayisepet.Models.UrunSonucPojo;
 
 import retrofit2.Call;
 
@@ -24,6 +25,11 @@ public class ManagerAll extends  BaseManager {
     public Call<DogrulamaPojo> dogrula(String kad, String kod){
 
         Call<DogrulamaPojo> x = getRestApi().dogrulama(kad,kod);
+        return x;
+    }
+    public Call<UrunSonucPojo> urunsonuc(String kid, String ilce, String mahalle, String sokak, String binano, String baslik, String aciklama, String marka ,String fiyat, String uretimyeri){
+
+        Call<UrunSonucPojo> x = getRestApi().urunSat(kid,ilce,mahalle,sokak,binano,baslik,aciklama,marka,fiyat,uretimyeri);
         return x;
     }
 

@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UrunBilgileri"></activity>
+        <activity android:name=".UrunResimler"></activity>
+        <activity android:name=".UrunResimlerActivity" />
+        <activity android:name=".UrunBilgileriActivity" />
         <activity android:name=".AdresBilgileriActivity" />
         <activity android:name=".DogrulamaActivity" />
         <activity android:name=".RegisterActivity" />

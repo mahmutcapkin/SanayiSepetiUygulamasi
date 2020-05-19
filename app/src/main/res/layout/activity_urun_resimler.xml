@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F7BC05"
-    tools:context=".UrunBilgileriActivity">
-
+    tools:context=".UrunResimler">
 
     <TextView
         android:layout_width="match_parent"
@@ -17,64 +16,41 @@
         android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:gravity="center"
-        android:text="Ürün Bilgilerini Giriniz."/>
-
-
-    <EditText
-        android:id="@+id/etUrunBaslik"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="#203040"
-        android:hint="Ürün Başlık Giriniz."/>
-    <EditText
-        android:id="@+id/etUrunAciklama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="#203040"
-        android:hint="Ürün Açıklama Giriniz."/>
-
-    <EditText
-        android:id="@+id/etMarka"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="#203040"
-        android:hint="Ürün Markasını Giriniz."/>
-
-    <EditText
-        android:id="@+id/etFiyat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="#203040"
-        android:hint="Ürün Fiyatını Giriniz."/>
-
-
-    <EditText
-        android:id="@+id/etUretimYeri"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="#203040"
-        android:hint="Ürün Üretim Yerini Giriniz."/>
-
+        android:text="Ürün Resimlerini Seçin."/>
 
     <Button
-        android:id="@+id/btnUrunIleri"
+        android:id="@+id/btnResimSec"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginTop="20dp"
-        android:text="İleri"
+        android:text="Resim Seç"
         android:background="@drawable/menu_button_back"/>
+    <ImageView
+        android:id="@+id/secilenUrunResimImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
     <Button
-        android:id="@+id/btnUrunGeri"
+        android:id="@+id/btnResimEkle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginTop="20dp"
-        android:text="Geri"
+        android:text="Resim Ekle"
         android:background="@drawable/menu_button_back"/>
 
+    <Button
+        android:id="@+id/btnCikis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Çık"
+        android:background="@drawable/menu_button_back"/>
 
 </LinearLayout>
