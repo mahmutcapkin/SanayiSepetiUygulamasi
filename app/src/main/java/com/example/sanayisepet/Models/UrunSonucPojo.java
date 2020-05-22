@@ -2,8 +2,8 @@ package com.example.sanayisepet.Models;
 
 public class UrunSonucPojo{
 	private boolean truefalse;
-	private String urunId;
-	private int uyeId;
+	private int uyeid;
+	private String urunid;
 
 	public void setTruefalse(boolean truefalse){
 		this.truefalse = truefalse;
@@ -13,29 +13,29 @@ public class UrunSonucPojo{
 		return truefalse;
 	}
 
-	public void setUrunId(String urunId){
-		this.urunId = urunId;
+	public void setUyeid(int uyeid){
+		this.uyeid = uyeid;
 	}
 
-	public String getUrunId(){
-		return urunId;
+	public int getUyeid(){
+		return uyeid;
 	}
 
-	public void setUyeId(int uyeId){
-		this.uyeId = uyeId;
+	public void setUrunid(String urunid){
+		this.urunid = urunid;
 	}
 
-	public int getUyeId(){
-		return uyeId;
+	public String getUrunid(){
+		return urunid;
 	}
 
 	@Override
- 	public String toString(){
-		return 
-			"UrunSonucPojo{" + 
-			"truefalse = '" + truefalse + '\'' + 
-			",urun_id = '" + urunId + '\'' + 
-			",uye_id = '" + uyeId + '\'' + 
-			"}";
-		}
+	public String toString(){
+		return
+				"Response{" +
+						"truefalse = '" + truefalse + '\'' +
+						",uyeid = '" + uyeid + '\'' +
+						",urunid = '" + urunid + '\'' +
+						"}";
+	}
 }

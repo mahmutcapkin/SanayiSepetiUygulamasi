@@ -82,11 +82,11 @@
                 android:textColor="#0F3057"
                 android:textStyle="bold"
                 android:padding="8dp"
-                android:id="@+id/ilanFavori"
+                android:id="@+id/urunFavori"
                 android:paddingBottom="10dp"
                 android:background="@drawable/menu_button_back"
                 android:drawableTop="@drawable/favori"
-                android:text="Favori İlanlar" />
+                android:text="Favori Ürünler" />
         </LinearLayout>
 
         <LinearLayout

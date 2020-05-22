@@ -157,20 +157,27 @@ public class MainActivity extends AppCompatActivity  implements  NavigationView.
                 overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
             }
         });
-         /*  btnSatilikUrun.setOnClickListener(new View.OnClickListener() {
+
+        btnSatilikUrun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,IlanBilgileriActivity.class);
-                startActivity(intent);
-            }
-        });*/
-     /*   btnUrunlerim.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,IlanBilgileriActivity.class);
+                Intent intent = new Intent(MainActivity.this,TumUrunler.class);
                 startActivity(intent);
             }
         });
+
+        btnUrunlerim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Urunlerim.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
+            }
+        });
+
+
+
+        /*
         btnMesajlarim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,6 +185,11 @@ public class MainActivity extends AppCompatActivity  implements  NavigationView.
                 startActivity(intent);
             }
         });
+
+
+
+
+
         btnIletisim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

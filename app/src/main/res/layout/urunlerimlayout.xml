@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:orientation="horizontal"
+    android:layout_margin="3dp"
+    android:id="@+id/urunLinearLayout"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/ivUrunlerResim"
+        android:layout_width="0dp"
+        android:layout_weight="1.1"
+        android:layout_height="100dp" />
+
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:orientation="vertical"
+        android:layout_weight="3"
+        android:layout_marginLeft="5dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0f3057"
+            android:textSize="20dp"
+            android:layout_alignParentTop="true"
+            android:text="Deneme"
+            android:id="@+id/tvUrunlerimBaslik"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0f3057"
+            android:textSize="15dp"
+            android:gravity="right|bottom"
+            android:layout_alignParentBottom="true"
+            android:text="Deneme"
+            android:id="@+id/tvUrunlerimFiyat"/>
+
+    </RelativeLayout>
+</LinearLayout>

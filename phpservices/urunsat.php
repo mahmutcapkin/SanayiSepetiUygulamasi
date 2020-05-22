@@ -17,8 +17,8 @@ $uretimyeri = $_POST["uretimyeri"];
 
 class Result
 {
-    public $uye_id;
-    public $urun_id;
+    public $uyeid;
+    public $urunid;
     public $truefalse;
 }
 
@@ -31,9 +31,9 @@ if($ekle)
     $sor = mysqli_query($baglan,"select * from urunler where kullanici_id = '$kullanici_id' order by id desc limit 1");
     $sor2 = mysqli_fetch_assoc($sor);
     
-    $result->uye_id = $kullanici_id;
+    $result->uyeid = $sor2["kullanici_id"];
     $result->truefalse= true;
-    $result->urun_id = $sor2["id"];
+    $result->urunid = $sor2["id"];
     echo(json_encode($result));
 }
 else

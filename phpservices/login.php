@@ -16,7 +16,7 @@ Class Uye
 }
 
 
-$kontrol = mysqli_fetch_assoc(mysqli_query($baglan," select * from kullanicilar where kullaniciadi='".$ad."' and kullanicisifre='".$sifre."'"));
+$kontrol = mysqli_fetch_assoc(mysqli_query($baglan," select * from kullanicilar where kullaniciadi='$ad' and kullanicisifre='$sifre' and durum='1' "));
 $uye = new Uye();
 $uye->id = $kontrol["id"];
 $uye->kadi = $kontrol["kullaniciadi"];

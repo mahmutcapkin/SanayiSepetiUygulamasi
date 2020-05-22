@@ -29,5 +29,6 @@
     </string>
     <string name="title_activity_register">Register In</string>
     <string name="title_activity_dogrula">Doğrula Activity</string>
+    <string name="title_activity_tum_urunler_detay">Sign in</string>
 
 </resources>

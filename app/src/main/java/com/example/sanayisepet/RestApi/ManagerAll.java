@@ -3,7 +3,15 @@ package com.example.sanayisepet.RestApi;
 import com.example.sanayisepet.Models.DogrulamaPojo;
 import com.example.sanayisepet.Models.LoginPojo;
 import com.example.sanayisepet.Models.RegisterPojo;
+import com.example.sanayisepet.Models.ResimEklePojo;
+import com.example.sanayisepet.Models.SliderPojo;
+import com.example.sanayisepet.Models.TumUrunlerPojo;
+import com.example.sanayisepet.Models.UrunDetayPojo;
 import com.example.sanayisepet.Models.UrunSonucPojo;
+import com.example.sanayisepet.Models.UrunlerimPojo;
+import com.example.sanayisepet.Models.UrunlerimSilPojo;
+
+import java.util.List;
 
 import retrofit2.Call;
 
@@ -33,13 +41,45 @@ public class ManagerAll extends  BaseManager {
         return x;
     }
 
-/*
-    public Call<Register> register(String kadi, String sifre){
+    public Call<ResimEklePojo> resimEkle(String kid, String urun_id, String image){
 
-        Call<Register> x = getRestApi().kayitol(kadi,sifre);
+        Call<ResimEklePojo> x = getRestApi().resimYukle(kid,urun_id,image);
+        return x;
+    }
+    public Call<List<UrunlerimPojo>> urunlerim(String kid){
+
+        Call<List<UrunlerimPojo>> x = getRestApi().urunlerim(kid);
+        return x;
+    }
+
+    public Call<UrunlerimSilPojo> urunlerimSil(String urunid){
+
+        Call<UrunlerimSilPojo> x = getRestApi().urunlerimdensil(urunid);
+        return x;
+    }
+
+    public  Call<List<TumUrunlerPojo>> tumurunler(){
+
+        Call<List<TumUrunlerPojo>> x = getRestApi().tumurunler();
 
         return x;
     }
+
+    public Call<UrunDetayPojo> urunDetay(String urunid){
+
+        Call<UrunDetayPojo> x = getRestApi().urundetay(urunid);
+
+        return x;
+    }
+
+    public Call<List<SliderPojo>> urunDetayResim(String urunid){
+
+        Call<List<SliderPojo>> x = getRestApi().urundetayResimler(urunid);
+
+        return x;
+    }
+
+    /*
 
     public Call<DogrulamaPojo> dogrulama(String kadi, String kod){
 
