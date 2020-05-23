@@ -1,11 +1,12 @@
 package com.example.sanayisepet;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sanayisepet.Models.UrunlerimSilPojo;
 import com.example.sanayisepet.RestApi.ManagerAll;
@@ -16,7 +17,7 @@ import retrofit2.Response;
 
 public class AlertDialogClass {
 
-    public void UrunlerimAlertDialog(final Activity activity, final String urun_id)
+    public void UrunlerimAlertDialog(final AppCompatActivity activity, final String urun_id)
     {
         LayoutInflater layoutInflater = activity.getLayoutInflater();
         View view = layoutInflater.inflate(R.layout.alertlayout,null);
@@ -46,7 +47,7 @@ public class AlertDialogClass {
         dialog.show();
     }
 
-    public void sil(String urunId, final Activity activity)
+    public void sil(String urunId, final AppCompatActivity activity)
     {
         Call<UrunlerimSilPojo> request = ManagerAll.getInstance().urunlerimSil(urunId);
         request.enqueue(new Callback<UrunlerimSilPojo>() {

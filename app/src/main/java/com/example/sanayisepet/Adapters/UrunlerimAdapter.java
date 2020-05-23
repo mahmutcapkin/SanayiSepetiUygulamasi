@@ -1,6 +1,5 @@
 package com.example.sanayisepet.Adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sanayisepet.AlertDialogClass;
 import com.example.sanayisepet.Models.UrunlerimPojo;
@@ -19,11 +20,11 @@ import java.util.List;
 public class UrunlerimAdapter extends BaseAdapter {
     List<UrunlerimPojo> list;
     Context context;
-    Activity activity;
+    AppCompatActivity activity;
     String uyeid, urunid;
     AlertDialogClass alertDialogClass;
 
-    public UrunlerimAdapter(List<UrunlerimPojo> list, Context context,Activity activity)
+    public UrunlerimAdapter(List<UrunlerimPojo> list, Context context, AppCompatActivity activity)
     {
         this.list = list;
         this.context = context;

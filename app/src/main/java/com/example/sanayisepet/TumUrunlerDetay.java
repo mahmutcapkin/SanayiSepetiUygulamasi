@@ -1,15 +1,20 @@
 package com.example.sanayisepet;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.sanayisepet.Adapters.SliderAdapter;
+import com.example.sanayisepet.Models.FavoriIslem;
+import com.example.sanayisepet.Models.FavoriKontrol;
 import com.example.sanayisepet.Models.SliderPojo;
 import com.example.sanayisepet.Models.UrunDetayPojo;
 import com.example.sanayisepet.RestApi.ManagerAll;
@@ -48,8 +53,10 @@ public class TumUrunlerDetay extends AppCompatActivity {
         urunID = bundle.getString("urun_id");
 
         tanimla();
-        urunDetayGoruntule(urunID);
+        urunDetayGoruntule();
         getResim();
+        FavoriBtnText();
+        FavoriBtnAksiyon();
 
     }
 
@@ -72,7 +79,7 @@ public class TumUrunlerDetay extends AppCompatActivity {
         urunDetaySlider = findViewById(R.id.urunDetaySlider);
 
     }
-    public void urunDetayGoruntule(String urunid){
+    public void urunDetayGoruntule(){
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Ürünler");
@@ -80,7 +87,7 @@ public class TumUrunlerDetay extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        Call<UrunDetayPojo> request = ManagerAll.getInstance().urunDetay(urunid);
+        Call<UrunDetayPojo> request = ManagerAll.getInstance().urunDetay(urunID);
         request.enqueue(new Callback<UrunDetayPojo>() {
             @Override
             public void onResponse(Call<UrunDetayPojo> call, Response<UrunDetayPojo> response) {
@@ -96,7 +103,7 @@ public class TumUrunlerDetay extends AppCompatActivity {
                     urunDetayMarka.setText(response.body().getMarka());
                     urunDetayFiyat.setText(response.body().getFiyat());
                     urunDetayUretimYer.setText(response.body().getUretimyeri());
-
+                    otherId = response.body().getUyeid();
                 }
             }
 
@@ -108,7 +115,6 @@ public class TumUrunlerDetay extends AppCompatActivity {
             }
         });
     }
-
 
     public void getResim(){
         Call<List<SliderPojo>> request = ManagerAll.getInstance().urunDetayResim(urunID);
@@ -131,6 +137,70 @@ public class TumUrunlerDetay extends AppCompatActivity {
         });
     }
 
+    public void FavoriBtnText()
+    {
+        Call<FavoriKontrol> request = ManagerAll.getInstance().favoritext(uyeId,urunID);
+        request.enqueue(new Callback<FavoriKontrol>() {
+            @Override
+            public void onResponse(Call<FavoriKontrol> call, Response<FavoriKontrol> response) {
+
+                if(response.body().isTruefalse())
+                {
+                    btnDetayFavoriAl.setText(response.body().getText());
+                }else {
+                    btnDetayFavoriAl.setText(response.body().getText());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FavoriKontrol> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    public void FavoriBtnAksiyon()
+    {
+        btnDetayFavoriAl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Call<FavoriIslem> request = ManagerAll.getInstance().favoriIslem(uyeId,urunID);
+                request.enqueue(new Callback<FavoriIslem>() {
+                    @Override
+                    public void onResponse(Call<FavoriIslem> call, Response<FavoriIslem> response) {
+
+                        if(response.body().isTruefalse())
+                        {
+                            Toast.makeText(getApplicationContext(),response.body().getText(),Toast.LENGTH_LONG).show();
+                            FavoriBtnText();
+                        }else
+                        {
+                            Toast.makeText(getApplicationContext(),response.body().getText(),Toast.LENGTH_LONG).show();
+                            FavoriBtnText();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<FavoriIslem> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(),"HATA",Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
+
+        btnMesajGonder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),ChatActivity.class);
+                DigerID.setOtherID(otherId);
+                startActivity(intent);
+            }
+        });
+
+    }
+
 
 
 
@@ -142,5 +212,3 @@ public class TumUrunlerDetay extends AppCompatActivity {
 
 
 }
-//urunDetayIlce, urunDetayMahalle, urunDetaySokak, urunDetayNo, urunDetayBaslik, urunDetayAciklama, urunDetayMarka, urunDetayFiyat, urunDetayUretimYer
-//btnMesajGonder, btnDetayFavoriAl , urunDetayViewPager, urunDetaySlider,

@@ -1,11 +1,16 @@
 package com.example.sanayisepet.RestApi;
 
+import com.example.sanayisepet.Models.BilgilerPojo;
 import com.example.sanayisepet.Models.DogrulamaPojo;
+import com.example.sanayisepet.Models.FavoriIslem;
+import com.example.sanayisepet.Models.FavoriKontrol;
+import com.example.sanayisepet.Models.FavoriSliderPojo;
 import com.example.sanayisepet.Models.LoginPojo;
 import com.example.sanayisepet.Models.RegisterPojo;
 import com.example.sanayisepet.Models.ResimEklePojo;
 import com.example.sanayisepet.Models.SliderPojo;
 import com.example.sanayisepet.Models.TumUrunlerPojo;
+import com.example.sanayisepet.Models.Update;
 import com.example.sanayisepet.Models.UrunDetayPojo;
 import com.example.sanayisepet.Models.UrunSonucPojo;
 import com.example.sanayisepet.Models.UrunlerimPojo;
@@ -58,7 +63,20 @@ public interface RestApi {
     @GET("urundetayresimler.php")
     Call<List<SliderPojo>> urundetayResimler(@Query("urun_id") String urun_id);
 
+    @GET("favori.php")
+    Call<FavoriKontrol> favoritext(@Query("kullanici_id") String kullanici_id, @Query("urun_id") String urun_id);
 
+    @GET("favorisayfa.php")
+    Call<FavoriIslem> favoriIslem(@Query("kullanici_id") String kullanici_id, @Query("urun_id") String urun_id);
+
+    @GET("favorislider.php")
+    Call<List<FavoriSliderPojo>> sliderislem(@Query("kullanici_id") String kullanici_id);
+
+    @GET("bilgiler.php")
+    Call<BilgilerPojo> bilgigetir(@Query("kullanici_id") String kullanici_id);
+
+    @GET("bilgiguncelle.php")
+    Call<Update> bilgiguncelle(@Query("kullanici_id") String kullanici_id, @Query("user") String user, @Query("sifre") String sifre);
 
 
 

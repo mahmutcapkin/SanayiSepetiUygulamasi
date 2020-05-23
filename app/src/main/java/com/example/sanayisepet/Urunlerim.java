@@ -1,12 +1,10 @@
 package com.example.sanayisepet;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sanayisepet.Adapters.UrunlerimAdapter;
 import com.example.sanayisepet.Models.UrunlerimPojo;
@@ -108,7 +108,7 @@ public class Urunlerim extends AppCompatActivity {
 
 
 
-    public void UrunlerimAlertDialog(final Activity activity, final String urun_id)
+    public void UrunlerimAlertDialog(final AppCompatActivity activity, final String urun_id)
     {
         LayoutInflater layoutInflater = activity.getLayoutInflater();
         View view = layoutInflater.inflate(R.layout.alertlayout,null);
@@ -138,7 +138,7 @@ public class Urunlerim extends AppCompatActivity {
         dialog.show();
     }
 
-    public void sil(String urunId, final Activity activity)
+    public void sil(String urunId, final AppCompatActivity activity)
     {
         Call<UrunlerimSilPojo> request = ManagerAll.getInstance().urunlerimSil(urunId);
         request.enqueue(new Callback<UrunlerimSilPojo>() {

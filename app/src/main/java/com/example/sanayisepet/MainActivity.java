@@ -3,36 +3,47 @@ package com.example.sanayisepet;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.ui.AppBarConfiguration;
+import androidx.viewpager.widget.ViewPager;
+
+import com.example.sanayisepet.Adapters.FavoriSliderAdapter;
+import com.example.sanayisepet.Models.FavoriSliderPojo;
+import com.example.sanayisepet.RestApi.ManagerAll;
+import com.google.android.material.navigation.NavigationView;
+
+import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 //import android.support.annotation.NonNull;
 
-public class MainActivity extends AppCompatActivity  implements  NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener{
 
     String navHeaderText;
     TextView tvNavHeaderText;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     String uyeId;
-    Button btnUrunSat,btnUrunlerim,btnSatilikUrun,btnIletisim,btnMesajlarim;
-    ViewPager MainurunDetaySlider;
-    CircleIndicator MainsliderNokta;
+    Button btnUrunSat,btnUrunlerim,btnSatilikUrun,btnIletisim,btnMesajlarim,btnUrunFavori;
+    ViewPager vpFavoridetay;
+    CircleIndicator urunDetaySlider;
+    FavoriSliderAdapter favoriSliderAdapter;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -46,12 +57,11 @@ public class MainActivity extends AppCompatActivity  implements  NavigationView.
         sharedPreferences = getSharedPreferences("giris",0);
         navHeaderText = sharedPreferences.getString("uye_kullaniciAdi",null);
         uyeId = sharedPreferences.getString("uye_id",null);
-
+        Toast.makeText(getApplicationContext(),uyeId,Toast.LENGTH_LONG).show();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener((DrawerLayout.DrawerListener) toggle);
         toggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_view);
 
@@ -60,13 +70,14 @@ public class MainActivity extends AppCompatActivity  implements  NavigationView.
         tvNavHeaderText.setText(navHeaderText);
 
         navigationView.setNavigationItemSelectedListener(this);
-
+        /*
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_add, R.id.nav_message, R.id.nav_cikis)
                 .setDrawerLayout(drawer)
-                .build();
+                .build();*/
 
         tanimlamalar();
+        getSlider();
     }
     @Override
     public void onBackPressed() {
@@ -115,21 +126,32 @@ public class MainActivity extends AppCompatActivity  implements  NavigationView.
         return true;
     }
 
-     /* public  void getSlider()
+      public  void getSlider()
     {
-        final Call<List<FavoriSliderPojo>> request = ManagerALL.getInstance().setSlider(uyeId);
+        Call<List<FavoriSliderPojo>> request = ManagerAll.getInstance().sliderislem(uyeId);
         request.enqueue(new Callback<List<FavoriSliderPojo>>() {
             @Override
             public void onResponse(Call<List<FavoriSliderPojo>> call, Response<List<FavoriSliderPojo>> response) {
+                if(response.body().get(0).isTruefalse())
+                {
+                    if(response.body().size() > 0)
+                    {
+                        favoriSliderAdapter = new FavoriSliderAdapter(response.body(),getApplicationContext(),MainActivity.this);
+                        vpFavoridetay.setAdapter(favoriSliderAdapter);
+                        urunDetaySlider.setViewPager(vpFavoridetay);
+                        urunDetaySlider.bringToFront();
+                    }
 
-                if(response.body().size() > 0)
+                }
+                else
                 {
                     favoriSliderAdapter = new FavoriSliderAdapter(response.body(),getApplicationContext(),MainActivity.this);
-
-                    MainilanDetaySlider.setAdapter(favoriSliderAdapter);
-                    MainsliderNokta.setViewPager(MainilanDetaySlider);
-                    MainsliderNokta.bringToFront();
+                    vpFavoridetay.setAdapter(favoriSliderAdapter);
+                    urunDetaySlider.setViewPager(vpFavoridetay);
+                    urunDetaySlider.bringToFront();
                 }
+
+
             }
 
             @Override
@@ -137,7 +159,13 @@ public class MainActivity extends AppCompatActivity  implements  NavigationView.
 
             }
         });
-    }*/
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getSlider();
+    }
 
     public void tanimlamalar()
     {
@@ -145,9 +173,12 @@ public class MainActivity extends AppCompatActivity  implements  NavigationView.
         btnUrunSat = findViewById(R.id.btnUrunSat);
         btnUrunlerim = findViewById(R.id.btnUrunlerim);
         btnIletisim = findViewById(R.id.btnIletisimBilgi);
-        MainurunDetaySlider = (ViewPager)findViewById(R.id.VPurunDetaySlider);
-        MainsliderNokta = (CircleIndicator)findViewById(R.id.MainsliderNokta);
+        btnUrunFavori = findViewById(R.id.btnUrunFavori);
         btnMesajlarim = findViewById(R.id.btnKisiMesaj);
+
+        vpFavoridetay = (ViewPager)findViewById(R.id.vpFavoridetay);
+        urunDetaySlider = (CircleIndicator)findViewById(R.id.urunDetaySlider);
+
 
         btnUrunSat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,6 +194,7 @@ public class MainActivity extends AppCompatActivity  implements  NavigationView.
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,TumUrunler.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
             }
         });
 
@@ -176,27 +208,24 @@ public class MainActivity extends AppCompatActivity  implements  NavigationView.
         });
 
 
-
-        /*
-        btnMesajlarim.setOnClickListener(new View.OnClickListener() {
+        btnIletisim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,IlanBilgileriActivity.class);
+                Intent intent = new Intent(MainActivity.this,BilgiActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
             }
         });
 
 
-
-
-
-        btnIletisim.setOnClickListener(new View.OnClickListener() {
+        btnMesajlarim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,IlanBilgileriActivity.class);
+                Intent intent = new Intent(MainActivity.this,MesajlarActivity.class);
                 startActivity(intent);
+                 overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
             }
-        });*/
+        });
 
     }
 

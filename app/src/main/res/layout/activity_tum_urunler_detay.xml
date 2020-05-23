@@ -27,13 +27,13 @@
         android:layout_height="230dp"
         android:layout_below="@+id/urunDetayAnaBaslik">
 
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:id="@+id/urunDetayViewPager"
             android:layout_width="match_parent"
             android:background="#b7ef9c"
             android:layout_height="match_parent">
 
-        </android.support.v4.view.ViewPager>
+        </androidx.viewpager.widget.ViewPager>
 
         <me.relex.circleindicator.CircleIndicator
             android:id="@+id/urunDetaySlider"

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "748470132928",
+    "firebase_url": "https://sanayisepet.firebaseio.com",
+    "project_id": "sanayisepet",
+    "storage_bucket": "sanayisepet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748470132928:android:a2743cbeb41679e0414d25",
+        "android_client_info": {
+          "package_name": "com.example.sanayisepet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748470132928-q5iqad094e0qde9vlu7aenhcrd7t6ku2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb-NWjl2ESfDS-ltAiYYS-ymAw7dfy3tg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748470132928-q5iqad094e0qde9vlu7aenhcrd7t6ku2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

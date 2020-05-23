@@ -1,11 +1,16 @@
 package com.example.sanayisepet.RestApi;
 
+import com.example.sanayisepet.Models.BilgilerPojo;
 import com.example.sanayisepet.Models.DogrulamaPojo;
+import com.example.sanayisepet.Models.FavoriIslem;
+import com.example.sanayisepet.Models.FavoriKontrol;
+import com.example.sanayisepet.Models.FavoriSliderPojo;
 import com.example.sanayisepet.Models.LoginPojo;
 import com.example.sanayisepet.Models.RegisterPojo;
 import com.example.sanayisepet.Models.ResimEklePojo;
 import com.example.sanayisepet.Models.SliderPojo;
 import com.example.sanayisepet.Models.TumUrunlerPojo;
+import com.example.sanayisepet.Models.Update;
 import com.example.sanayisepet.Models.UrunDetayPojo;
 import com.example.sanayisepet.Models.UrunSonucPojo;
 import com.example.sanayisepet.Models.UrunlerimPojo;
@@ -78,6 +83,41 @@ public class ManagerAll extends  BaseManager {
 
         return x;
     }
+    public Call<FavoriKontrol> favoritext(String kullaniciid,String urunid){
+
+        Call<FavoriKontrol> x = getRestApi().favoritext(kullaniciid,urunid);
+
+        return x;
+    }
+
+    public Call<FavoriIslem> favoriIslem(String kullaniciid, String urunid){
+
+        Call<FavoriIslem> x = getRestApi().favoriIslem(kullaniciid,urunid);
+
+        return x;
+    }
+
+    public Call<List<FavoriSliderPojo>> sliderislem(String kid){
+
+        Call<List<FavoriSliderPojo>> x = getRestApi().sliderislem(kid);
+
+        return x;
+    }
+
+    public Call<BilgilerPojo> BilgiGetir(String kullaniciid){
+
+        Call<BilgilerPojo> x = getRestApi().bilgigetir(kullaniciid);
+
+        return x;
+    }
+
+    public Call<Update> BilgiGuncelle(String id,String user,String sifre){
+
+        Call<Update> x = getRestApi().bilgiguncelle(id,user,sifre);
+
+        return x;
+    }
+
 
     /*
 

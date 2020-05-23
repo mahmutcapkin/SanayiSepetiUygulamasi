@@ -3,10 +3,11 @@ package com.example.sanayisepet;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sanayisepet.Adapters.TumUrunlerAdapter;
 import com.example.sanayisepet.Models.TumUrunlerPojo;
@@ -25,15 +26,12 @@ public class TumUrunler extends AppCompatActivity {
     TumUrunlerAdapter adapter;
     List<TumUrunlerPojo> TumUrunlerPojolist;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tum_urunler);
 
         listView = (ListView)findViewById(R.id.lvTumUrunler);
-        TumUrunleriGoruntule();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -42,9 +40,9 @@ public class TumUrunler extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        TumUrunleriGoruntule();
 
     }
-
 
 
     private void TumUrunleriGoruntule(){
