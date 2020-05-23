@@ -37,7 +37,6 @@ public class MesajAdapter extends RecyclerView.Adapter {
             view = LayoutInflater.from(context).inflate(R.layout.other,parent,false);
             return  new ViewHolder(view);
         }
-
     }
 
     @Override
@@ -45,14 +44,12 @@ public class MesajAdapter extends RecyclerView.Adapter {
 
         MesajModel m = list.get(position);
         ((ViewHolder)holder).setle(m);
-
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
@@ -77,7 +74,6 @@ public class MesajAdapter extends RecyclerView.Adapter {
         }
 
     }
-
 
 
     // veri tabanıntaki from a göre layout döndürülmesini sağlayan değişkenler

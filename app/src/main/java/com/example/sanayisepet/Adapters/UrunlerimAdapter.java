@@ -53,7 +53,6 @@ public class UrunlerimAdapter extends BaseAdapter {
         convertView = LayoutInflater.from(context).inflate(R.layout.urunlerimlayout,parent,false);
         ImageView resim;
         TextView baslik,fiyat;
-      //  LinearLayout linearLayout;
         resim = convertView.findViewById(R.id.ivUrunlerResim);
         baslik = convertView.findViewById(R.id.tvUrunlerimBaslik);
         fiyat = convertView.findViewById(R.id.tvUrunlerimFiyat);
@@ -61,15 +60,7 @@ public class UrunlerimAdapter extends BaseAdapter {
         fiyat.setText(list.get(position).getFiyat());
         urunid = list.get(position).getUrunid();
         uyeid = list.get(position).getUyeid();
-    //    linearLayout = convertView.findViewById(R.id.urunLinearLayout);
-     /*   linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                alertDialogClass = new AlertDialogClass();
-                alertDialogClass.UrunlerimAlertDialog(activity,urunid);
-            }
-        });*/
 
         Picasso.with(context).load("http://192.168.2.122/"+list.get(position).getResimsayiadres()+".jpg").into(resim);
 

@@ -102,11 +102,7 @@ public class Urunlerim extends AppCompatActivity {
             }
         });
 
-
-
     }
-
-
 
     public void UrunlerimAlertDialog(final AppCompatActivity activity, final String urun_id)
     {
@@ -155,12 +151,6 @@ public class Urunlerim extends AppCompatActivity {
                 Toast.makeText(activity,"HATA"+t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
-    }//sil
-
-
-
-
-
-
+    }
 
 }

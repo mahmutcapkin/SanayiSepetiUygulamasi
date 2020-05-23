@@ -21,7 +21,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class FavoriSliderAdapter  extends PagerAdapter {
-    // enson favorislider eklendi çıkarılabilir ondan önce favorislider pojo eklendi
+
     List<FavoriSliderPojo> list;
     Context context;
     LayoutInflater layoutInflater;

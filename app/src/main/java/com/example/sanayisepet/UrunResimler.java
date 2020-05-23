@@ -109,8 +109,6 @@ public class UrunResimler extends AppCompatActivity {
 
     public String imageToString(){
 
-        //RESMI BITMAP NESNESINE ATAMA
-       // bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.rest);
 
         //RESMI POST ISLEMI ILE YOLLAMAK ICIN YAPLAN ENCODE ISLEMI
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -130,7 +128,6 @@ public class UrunResimler extends AppCompatActivity {
             Uri path = data.getData();
             try{
 
-               // bitmap = BitmapFactory.decodeStream(getResources().getDrawable(R.drawable.rest,null));
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),path);
                 secilenUrunResim.setImageBitmap(bitmap);
                 secilenUrunResim.setVisibility(View.VISIBLE);

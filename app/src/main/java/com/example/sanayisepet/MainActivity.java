@@ -173,7 +173,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         btnUrunSat = findViewById(R.id.btnUrunSat);
         btnUrunlerim = findViewById(R.id.btnUrunlerim);
         btnIletisim = findViewById(R.id.btnIletisimBilgi);
-        btnUrunFavori = findViewById(R.id.btnUrunFavori);
         btnMesajlarim = findViewById(R.id.btnKisiMesaj);
 
         vpFavoridetay = (ViewPager)findViewById(R.id.vpFavoridetay);

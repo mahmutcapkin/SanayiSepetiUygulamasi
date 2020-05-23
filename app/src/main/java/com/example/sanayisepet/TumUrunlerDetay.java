@@ -201,14 +201,4 @@ public class TumUrunlerDetay extends AppCompatActivity {
 
     }
 
-
-
-
-
-
-
-
-
-
-
 }

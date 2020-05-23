@@ -73,11 +73,6 @@ public class TumUrunler extends AppCompatActivity {
             }
         });
 
-
-
     }
-
-
-
 
 }

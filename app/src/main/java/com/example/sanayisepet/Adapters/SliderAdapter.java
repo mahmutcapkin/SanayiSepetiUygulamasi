@@ -1,13 +1,14 @@
 package com.example.sanayisepet.Adapters;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.sanayisepet.Models.SliderPojo;
 import com.example.sanayisepet.R;
@@ -24,8 +25,6 @@ public class SliderAdapter extends PagerAdapter {
         this.Sliderlist = list;
         this.context = context;
     }
-
-
 
     @Override
     public int getCount() {

@@ -12,10 +12,3 @@ public class DigerID {
     }
 }
 
-   /* public void tanimla() {
-        otherID = DigerID.getOtherID();
-        sharedPreferences = this.getSharedPreferences("giris", 0);
-        userID = sharedPreferences.getString("uye_id", null);
-    }
-    String userID, otherID, userTable,otherTable,key;
-    SharedPreferences sharedPreferences;*/
