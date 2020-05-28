@@ -1,4 +1,4 @@
-# SanalEgitimProjesi
+# SanayiSepetiUygulamasi
 
  # Projenin Amacı
     
